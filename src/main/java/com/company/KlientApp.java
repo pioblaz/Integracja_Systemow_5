@@ -15,7 +15,7 @@ import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
 import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED;
 
 public class KlientApp extends JFrame {
-    public static String[] naglowki = null, producenci = null;
+    public static String[] naglowki = null, producenci;
     public static int wiersze = 0, kolumny = 15;
     public static Object[][] dane;
     public static KlientApp klientFrame = new KlientApp();
@@ -55,15 +55,13 @@ public class KlientApp extends JFrame {
 
         dane = new Object[wiersze][kolumny];
 
-        //producenci = laptopsInterface.producents();
+        producenci = laptopsInterface.producents();
 
-        JComboBox<String> comboBox_Producent = new JComboBox<String>();
-        comboBox_Producent.addItem("Dell");
-        comboBox_Producent.addItem("Samsung");
+        JComboBox<String> comboBox_Producent = new JComboBox<String>(producenci);
 
         JButton button_Producent = new JButton("Liczba laptopów producenta");
 
-        JTextArea liczbaProducentowTA = new JTextArea();     //text area do wyswietlania info
+        JTextArea liczbaProducentowTA = new JTextArea();
         liczbaProducentowTA.setText("Liczba laptopow wybranego producenta: ");
         liczbaProducentowTA.setFocusable(false);
 
@@ -79,7 +77,7 @@ public class KlientApp extends JFrame {
 
         JButton button_Proporcje = new JButton("Liczba laptopów z matrycami o określonych proporcjach");
 
-        JTextArea liczbaProporcjiTA = new JTextArea();     //text area do wyswietlania info
+        JTextArea liczbaProporcjiTA = new JTextArea();
         liczbaProporcjiTA.setText("Liczba laptopow z matrycami o określonych proporcjach: ");
         liczbaProporcjiTA.setFocusable(false);
 

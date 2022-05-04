@@ -22,24 +22,41 @@ public class LaptopsBean implements LaptopsInterface {
 
     @Override
     public String[] producents() {
-        String[] producenci = null;
-        String producenciTMP = "";
-        int indeks = 0;
+        String[] producenciTMP = new String[laptopsData.length];
+        int indeks = 0, i, j, k;
 
-        for (int i = 0; i < laptopsData.length; i++) {
-            producenci[i] = laptopsData[i][0].toString();
+        for (i = 0; i < laptopsData.length; i++) {
+            producenciTMP[i] = laptopsData[i][0].toString();
+        }
 
-            /*if (i == 0) {
-                producenci[indeks] = producenciTMP;
+        for (i = 0; i < laptopsData.length; i++) {
+            boolean dopisz = true;
+            for (j = 0; j < i; j++) {
+                if (producenciTMP[i].equals(producenciTMP[j])) {
+                    dopisz = false;
+                    break;
+                }
+            }
+            if (dopisz) {
                 indeks++;
             }
+        }
 
-            for (int j = 0; j < producenci.length; j++) {
-                if (!producenciTMP.equals(producenci[j])) {
-                    producenci[indeks] = producenciTMP;
-                    indeks++;
+        String[] producenci = new String[indeks];
+        k=0;
+
+        for (i = 0; i < laptopsData.length; i++) {
+            boolean dopisz = true;
+            for (j = 0; j < i; j++) {
+                if (producenciTMP[i].equals(producenciTMP[j])) {
+                    dopisz = false;
+                    break;
                 }
-            }*/
+            }
+            if (dopisz) {
+                producenci[k] = producenciTMP[i];
+                k++;
+            }
         }
 
         return producenci;
