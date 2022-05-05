@@ -46,7 +46,7 @@ public class Main extends JFrame {
 
     public Main() {
         setSize(1500, 700);
-        setTitle("Integracja systemów Lab5 - Piotr Błażewicz");
+        setTitle("Integracja systemów Lab5 - Aplikacja serwerowa - Piotr Błażewicz");
         setLayout(new FlowLayout(FlowLayout.LEFT));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -142,7 +142,7 @@ public class Main extends JFrame {
         button_import_DB.setBackground(Color.RED);
 
         JTextArea infoTA = new JTextArea();     //text area do wyswietlania info
-        infoTA.setText("Integracja systemów Lab5 - Piotr Błażewicz");
+        infoTA.setText("Integracja systemów Lab5 - Aplikacja serwerowa - Piotr Błażewicz");
         infoTA.setFocusable(false);
 
         tableModel = new DefaultTableModel(0, 0);     //TableModel
@@ -159,6 +159,8 @@ public class Main extends JFrame {
                     JOptionPane.showMessageDialog(okienko, "Pole musi się kończyć na \"");
                 } else if (column == 2 & !aValue.toString().matches("[0-9]+x[0-9]+")) {
                     JOptionPane.showMessageDialog(okienko, "Wprowadź wartość według wzoru, np. 1920x1080");
+                } else if (column == 3 && !aValue.toString().equals("blyszczaca") && !aValue.toString().equals("matowa")) {
+                    JOptionPane.showMessageDialog(okienko, "Pole musi się zawierać jedną z dwóch wartości: blyszczaca lub matowa!");
                 } else {
                     super.setValueAt(aValue, row, column);
 

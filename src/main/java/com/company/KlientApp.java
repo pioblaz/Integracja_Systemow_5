@@ -28,7 +28,7 @@ public class KlientApp extends JFrame {
 
     public KlientApp() {
         setSize(1500, 700);
-        setTitle("Integracja systemów Lab5 Klient - Piotr Błażewicz");
+        setTitle("Integracja systemów Lab5 - Aplikacja Klienta - Piotr Błażewicz");
         setLayout(new FlowLayout(FlowLayout.LEFT));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -74,6 +74,7 @@ public class KlientApp extends JFrame {
                 "4:3",
                 "3:2",
                 "16:10",
+                "16:9",
                 "5:3",
                 "2:1",
                 "21:9"};
@@ -100,7 +101,7 @@ public class KlientApp extends JFrame {
         liczbaProporcjiTA.setText("Liczba laptopow z matrycami o określonych proporcjach: ");
         liczbaProporcjiTA.setFocusable(false);
 
-        tableModel = new DefaultTableModel(0, 0);     //TableModel
+        tableModel = new DefaultTableModel(0, 0);
         tableModel.setColumnIdentifiers(naglowki);
 
         JTable table = new JTable(tableModel) {
@@ -143,8 +144,8 @@ public class KlientApp extends JFrame {
 
                 dane = laptopsInterface.laptopsByMatryca(Objects.requireNonNull(comboBox_Matryca.getSelectedItem()).toString());
 
-                for (int i = 0; i < dane.length; i++) {
-                    tableModel.addRow(dane[i]);
+                for (Object[] objects : dane) {
+                    tableModel.addRow(objects);
                 }
             }
         });

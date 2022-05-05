@@ -9,7 +9,6 @@ import javax.jws.soap.SOAPBinding.Style;
 @SOAPBinding(style = Style.RPC)
 public interface LaptopsInterface {
     @WebMethod int laptopsByProducent(String producent);
-    @WebMethod String[] producents();
     @WebMethod Object[][] laptopsByMatryca(String matryca);
     @WebMethod int laptopsByProporcje(String proporcje);
 }

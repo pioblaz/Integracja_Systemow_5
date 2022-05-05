@@ -5,7 +5,7 @@ import javax.jws.WebService;
 @WebService(endpointInterface = "com.company.LaptopsInterface")
 public class LaptopsBean implements LaptopsInterface {
 
-    Object[][] laptopsData;
+    Object[][] laptopsData = {};
 
     @Override
     public int laptopsByProducent(String producent) {
@@ -18,48 +18,6 @@ public class LaptopsBean implements LaptopsInterface {
         }
 
         return suma;
-    }
-
-    @Override
-    public String[] producents() {
-        String[] producenciTMP = new String[laptopsData.length];
-        int indeks = 0, i, j, k;
-
-        for (i = 0; i < laptopsData.length; i++) {
-            producenciTMP[i] = laptopsData[i][0].toString();
-        }
-
-        for (i = 0; i < laptopsData.length; i++) {
-            boolean dopisz = true;
-            for (j = 0; j < i; j++) {
-                if (producenciTMP[i].equals(producenciTMP[j])) {
-                    dopisz = false;
-                    break;
-                }
-            }
-            if (dopisz) {
-                indeks++;
-            }
-        }
-
-        String[] producenci = new String[indeks];
-        k = 0;
-
-        for (i = 0; i < laptopsData.length; i++) {
-            boolean dopisz = true;
-            for (j = 0; j < i; j++) {
-                if (producenciTMP[i].equals(producenciTMP[j])) {
-                    dopisz = false;
-                    break;
-                }
-            }
-            if (dopisz) {
-                producenci[k] = producenciTMP[i];
-                k++;
-            }
-        }
-
-        return producenci;
     }
 
     @Override
