@@ -43,7 +43,7 @@ public class LaptopsBean implements LaptopsInterface {
         }
 
         String[] producenci = new String[indeks];
-        k=0;
+        k = 0;
 
         for (i = 0; i < laptopsData.length; i++) {
             boolean dopisz = true;
@@ -85,12 +85,28 @@ public class LaptopsBean implements LaptopsInterface {
     }
 
     @Override
-    public int countLaptopsByMatryca(String proporcje) {
+    public int laptopsByProporcje(String proporcje) {
         int suma = 0;
+        double a, b, c, d, x1, x2;
+        String[] liczby1 = proporcje.split(":");
+        String[] liczby2;
+
+        a = Double.parseDouble(liczby1[0]);
+        b = Double.parseDouble(liczby1[1]);
+        x1 = a / b;
+        x1 = Math.round(x1 * 100.0) / 100.0;
 
         for (int i = 0; i < laptopsData.length; i++) {
-            if (laptopsData[i][0].equals(proporcje)) {
-                suma++;
+            if (!(laptopsData[i][2].toString().equals("Brak informacji"))) {
+                liczby2 = laptopsData[i][2].toString().split("x");
+                c = Double.parseDouble(liczby2[0]);
+                d = Double.parseDouble(liczby2[1]);
+                x2 = c / d;
+                x2 = Math.round(x2 * 100.0) / 100.0;
+
+                if (x1 == x2) {
+                    suma++;
+                }
             }
         }
 

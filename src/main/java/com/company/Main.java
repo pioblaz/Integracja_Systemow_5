@@ -42,6 +42,7 @@ public class Main extends JFrame {
     public static List<Integer> duplicatedRows = new ArrayList<>();
     public static Main okienko = new Main();
     public static DefaultTableModel tableModel;
+    public static LaptopsBean laptopsBean = new LaptopsBean();
 
     public Main() {
         setSize(1500, 700);
@@ -96,10 +97,11 @@ public class Main extends JFrame {
         for (i = 0; i < rows; i++) {
             tableModel.addRow(dane[i]);
         }
+
+        laptopsBean.laptopsData = dane;
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        LaptopsBean laptopsBean = new LaptopsBean();
         Endpoint.publish("http://localhost:8888/laptopy", laptopsBean);
 
         naglowki = new String[]{"Producent",
@@ -273,10 +275,6 @@ public class Main extends JFrame {
 
                     //SZUKANIE DUPLIKATOW
                     searchDuplicate(wiersze, wierszeTMP);
-
-                    laptopsBean.laptopsData = dane;
-                    //Endpoint.publish("http://localhost:8888/laptopy", laptopsBean);
-                    //System.out.println(laptopsBean.laptopsData[1][1].toString());
                 } catch (IOException e2) {
                     System.out.println("Blad odczytu pliku!");
                 }
@@ -490,8 +488,6 @@ public class Main extends JFrame {
 
                     //SZUKANIE DUPLIKATOW
                     searchDuplicate(wiersze, wierszeTMP);
-
-                    laptopsBean.laptopsData = dane;
                 } catch (ParserConfigurationException parserConfigurationException) {
                     parserConfigurationException.printStackTrace();
                 } catch (IOException ioException) {
@@ -638,8 +634,6 @@ public class Main extends JFrame {
 
                     //SZUKANIE DUPLIKATOW
                     searchDuplicate(wiersze, wierszeTMP);
-
-                    laptopsBean.laptopsData = dane;
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 }

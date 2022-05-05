@@ -11,5 +11,5 @@ public interface LaptopsInterface {
     @WebMethod int laptopsByProducent(String producent);
     @WebMethod String[] producents();
     @WebMethod Object[][] laptopsByMatryca(String matryca);
-    @WebMethod int countLaptopsByMatryca(String proporcje);
+    @WebMethod int laptopsByProporcje(String proporcje);
 }

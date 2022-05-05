@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<laptops moddate="Wed May 04 16:40:13 CEST 2022">
+<laptops moddate="Thu May 05 10:59:25 CEST 2022">
     <laptop id="1">
         <manufacturer>Samsung</manufacturer>
         <screen touch="nie">
             <size>12"</size>
-            <resolution>Brak informacji</resolution>
+            <resolution>1280x1024</resolution>
             <type>matowa</type>
         </screen>
         <processor>
@@ -73,7 +73,7 @@
         <manufacturer>Huawei</manufacturer>
         <screen touch="nie">
             <size>13"</size>
-            <resolution>Brak informacji</resolution>
+            <resolution>1400x1050</resolution>
             <type>matowa</type>
         </screen>
         <processor>
